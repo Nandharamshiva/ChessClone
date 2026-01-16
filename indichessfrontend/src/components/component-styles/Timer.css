@@ -1,0 +1,111 @@
+.timer-container {
+  background: linear-gradient(135deg, #3a3f47 0%, #2a2d33 100%);
+  border: 2px solid #4a5a6a;
+  border-radius: 8px;
+  padding: 4px 2px;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-width: 130px;
+  width: 100%;
+}
+
+.timer-container.active {
+  border-color: #4CAF50;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+}
+
+.timer-container.inactive {
+  opacity: 0.6;
+  border-color: #6a7a8a;
+}
+
+.timer-container.low-time {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+  border-color: #ff9800;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 107, 53, 0.8);
+  }
+}
+
+.timer-container.out-of-time {
+  background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+  border-color: #b71c1c;
+  animation: pulse-red 0.5s infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(211, 47, 47, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(211, 47, 47, 0.8);
+  }
+}
+
+.player-name {
+  font-size: 10px;
+  color: #b0bec5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.timer-display {
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Courier New", monospace;
+  letter-spacing: 1px;
+  margin: 6px 0;
+}
+
+.timer-container.low-time .timer-display {
+  color: #ffffff;
+  font-size: 32px;
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0%, 49% {
+    color: #ffffff;
+  }
+  50%, 100% {
+    color: #ffeb3b;
+  }
+}
+
+.timer-container.out-of-time .timer-display {
+  color: #ffffff;
+  font-size: 32px;
+}
+
+.increment-info {
+  font-size: 10px;
+  color: #90caf9;
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+.timer-container.low-time .increment-info {
+  color: #ffeb3b;
+}
+
+/* Two-player timer layout */
+.timer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.timer-row .timer-container {
+  flex: 1;
+}

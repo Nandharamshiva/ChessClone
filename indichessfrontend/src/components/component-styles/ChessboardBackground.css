@@ -1,0 +1,140 @@
+/* Chessboard Background */
+.chessboard-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  background: transparent;
+  overflow: hidden;
+}
+
+.chessboard {
+  display: none;
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 2.5em;
+  user-select: none;
+}
+
+.square.light {
+  background-color: #f0d9b5;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.square.dark {
+  background-color: #b58863;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.piece {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.white-piece {
+  color: #fff;
+  text-shadow: 
+    1px 1px 1px rgba(0, 0, 0, 0.5),
+    -1px -1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.black-piece {
+  color: #222;
+  text-shadow: 
+    1px 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.checkmate-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.checkmate-label h1 {
+  font-size: 4em;
+  color: #ffd700;
+  margin: 0;
+  text-shadow: 
+    3px 3px 0 rgba(0, 0, 0, 0.5),
+    6px 6px 15px rgba(0, 0, 0, 0.5);
+  letter-spacing: 3px;
+  font-weight: bold;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.checkmate-label p {
+  font-size: 1.2em;
+  color: #fff;
+  margin: 10px 0 0 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-style: italic;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chessboard {
+    width: 350px;
+    height: 350px;
+  }
+
+  .square {
+    font-size: 1.8em;
+  }
+
+  .checkmate-label h1 {
+    font-size: 2.5em;
+  }
+
+  .checkmate-label p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .chessboard {
+    width: 280px;
+    height: 280px;
+  }
+
+  .square {
+    font-size: 1.3em;
+  }
+
+  .checkmate-label h1 {
+    font-size: 2em;
+  }
+
+  .checkmate-label p {
+    font-size: 0.8em;
+  }
+}

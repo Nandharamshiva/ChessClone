@@ -1,0 +1,126 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  padding: 0px;
+}
+
+.game-main-layout {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* Timers Section - Left Side */
+.board-with-timers {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+.timer-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.timer-top {
+  flex: 0 0 auto;
+}
+
+.timer-bottom {
+  flex: 0 0 auto;
+}
+
+.timer-column .timer-container {
+  min-width: 140px;
+  width: 100%;
+  padding: 12px;
+}
+
+/* Center - Board */
+.board-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 400px;
+  overflow: hidden;
+}
+
+.game-end-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 999;
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -150%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.game-end-alert h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.game-end-alert p {
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .game-main-layout {
+    flex-wrap: wrap;
+  }
+
+  .board-with-timers {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    padding: 5px;
+  }
+
+  .game-main-layout {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .board-with-timers {
+    flex-direction: row;
+    gap: 8px;
+    min-width: auto;
+  }
+
+  .timer-column .timer-container {
+    min-width: 100px;
+    padding: 8px;
+  }
+}
